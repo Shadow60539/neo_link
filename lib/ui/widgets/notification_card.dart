@@ -19,33 +19,34 @@ class NotificationCard extends StatelessWidget {
         shadowColor: Colors.white,
         child: Padding(
           padding: EdgeInsets.fromLTRB(25, 23, 26, 27),
-          child: Column(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'Connection 1bcdassfesafesg....',
-                        style: style.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.black),
-                      ),
-                      Text(
-                        'Tap to accept or decline',
-                        style: style.copyWith(fontSize: 10, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    '2:25 PM',
-                    style: style.copyWith(fontSize: 10, color: Colors.black),
-                  )
-                ],
+              Expanded(
+                flex: 4,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Connection 1bcdassfesa.............',
+                      style: style.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.black),
+                    ),
+                    Text(
+                      'Tap to accept or decline',
+                      style: style.copyWith(fontSize: 10, color: Colors.grey),
+                    ),
+                  ],
+                ),
               ),
+              Expanded(
+                child: Text(
+                  '2:25 PM',
+                  style: style.copyWith(fontSize: 10, color: Colors.black),
+                ),
+              )
             ],
           ),
         ),

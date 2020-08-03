@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_link_app/ui/pages/home_page.dart';
 import 'package:neo_link_app/ui/pages/notification_page.dart';
+import 'package:neo_link_app/ui/pages/settings_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _IndexPageState extends State<IndexPage> {
     HomePage(),
     HomePage(),
     NotificationPage(),
-    HomePage(),
+    SettingsPage(),
   ];
 
   PageController pageController = PageController();
