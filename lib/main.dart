@@ -14,18 +14,15 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: kLightBlue, systemNavigationBarColor: kDarkBlue));
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ).copyWith(
-        primaryColor: kLightBlue,
-        textTheme: TextTheme(
-          bodyText1: TextStyle(fontFamily: 'Lato', color: Colors.white),
-          bodyText2: TextStyle(),
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData.light().copyWith(
+          primaryColor: kLightBlue,
+          textTheme: TextTheme(
+            bodyText1: TextStyle(fontFamily: 'Lato', color: Colors.white),
+            bodyText2: TextStyle(),
+          ),
         ),
-      ),
-      home: SplashPage(),
-    );
+        home: SplashPage());
   }
 }
