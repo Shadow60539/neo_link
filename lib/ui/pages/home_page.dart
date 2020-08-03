@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_link_app/ui/colors/colors.dart';
+import 'package:neo_link_app/ui/pages/guardian_page.dart';
 import 'package:neo_link_app/ui/widgets/home_page_card.dart';
 import 'package:neo_link_app/ui/widgets/neo_link_title.dart';
 
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
             Container(
               decoration: kHomePageDecoration,
             ),
-            _backgroundContainer(style),
+            _backgroundContainer(style, context),
             _draggableSheet(),
           ],
         ),
@@ -47,26 +48,33 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _backgroundContainer(TextStyle style) {
+  Widget _backgroundContainer(TextStyle style, BuildContext context) {
     return Column(
       children: <Widget>[
         _appBar(),
-        Container(
-          height: 100,
-          width: 100,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-          child: Image.asset('assets/user_dp.png'),
-        ),
-        SizedBox(
-          height: 11,
-        ),
-        Text(
-          'Guardian',
-          style: style.copyWith(fontSize: 24),
-        ),
-        SizedBox(
-          height: 30,
+        GestureDetector(
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => GuardianPage())),
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.white),
+                  child: Image.asset('assets/user_dp.png'),
+                ),
+                SizedBox(
+                  height: 11,
+                ),
+                Text(
+                  'Guardian',
+                  style: style.copyWith(fontSize: 24),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );
