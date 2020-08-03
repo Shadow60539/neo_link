@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_link_app/ui/colors/colors.dart';
 import 'package:neo_link_app/ui/pages/guardian_page.dart';
+import 'package:neo_link_app/ui/widgets/app_bar.dart';
 import 'package:neo_link_app/ui/widgets/home_page_card.dart';
-import 'package:neo_link_app/ui/widgets/neo_link_title.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -24,40 +24,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _appBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 25),
-          child: Hero(
-            child: Image.asset(
-              'assets/splash.png',
-              scale: 2,
-            ),
-            tag: 'tag_splash_icon',
-          ),
-        ),
-        Hero(
-          child: NeoLinkTitle(),
-          tag: 'tag_title',
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28),
-          child: Icon(
-            Icons.help,
-            color: Colors.white,
-            size: 36,
-          ),
-        )
-      ],
-    );
-  }
-
   Widget _backgroundContainer(TextStyle style, BuildContext context) {
     return Column(
       children: <Widget>[
-        _appBar(),
+        MyAppBar(),
         GestureDetector(
           onTap: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => GuardianPage())),

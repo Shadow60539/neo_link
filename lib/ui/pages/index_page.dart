@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neo_link_app/ui/pages/home_page.dart';
+import 'package:neo_link_app/ui/pages/notification_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class _IndexPageState extends State<IndexPage> {
   List<Widget> _widgets = <Widget>[
     HomePage(),
     HomePage(),
-    HomePage(),
+    NotificationPage(),
     HomePage(),
   ];
 
