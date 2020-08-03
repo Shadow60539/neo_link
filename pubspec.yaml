@@ -49,6 +49,7 @@ flutter:
   assets:
      - assets/splash.png
      - assets/certificate.png
+     - assets/certificate_big.png
      - assets/user_dp.png
      - assets/user.png
      - assets/home.png

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:neo_link_app/ui/colors/colors.dart';
+import 'package:neo_link_app/ui/pages/view_guardian_card_page.dart';
 
 class GuardianCard extends StatelessWidget {
+  final int tag;
+
+  GuardianCard({this.tag});
+
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme.bodyText1;
@@ -26,8 +31,11 @@ class GuardianCard extends StatelessWidget {
                 children: <Widget>[
                   Row(
                     children: <Widget>[
-                      Image.asset(
-                        'assets/certificate.png',
+                      Hero(
+                        child: Image.asset(
+                          'assets/certificate.png',
+                        ),
+                        tag: 'tag_certificate$tag',
                       ),
                       SizedBox(
                         width: 5,
@@ -68,14 +76,22 @@ class GuardianCard extends StatelessWidget {
                       '1 Attributes',
                       style: style.copyWith(fontSize: 12, color: Colors.black),
                     ),
-                    Container(
-                      height: 38,
-                      width: 110,
-                      decoration: kGuardianButtonDecoration,
-                      child: Center(
-                        child: Text(
-                          'VIEW',
-                          style: style,
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ViewGuardianPage(
+                                    tag: 1,
+                                  ))),
+                      child: Container(
+                        height: 38,
+                        width: 110,
+                        decoration: kGuardianButtonDecoration,
+                        child: Center(
+                          child: Text(
+                            'VIEW',
+                            style: style,
+                          ),
                         ),
                       ),
                     )

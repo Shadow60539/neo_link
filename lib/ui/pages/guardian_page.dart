@@ -70,8 +70,12 @@ class GuardianPage extends StatelessWidget {
               SizedBox(
                 height: 8,
               ),
-              GuardianCard(),
-              GuardianCard(),
+              GuardianCard(
+                tag: 1,
+              ),
+              GuardianCard(
+                tag: 2,
+              ),
             ],
           ),
         ),

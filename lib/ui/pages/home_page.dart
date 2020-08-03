@@ -30,12 +30,18 @@ class HomePage extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 25),
-          child: Image.asset(
-            'assets/splash.png',
-            scale: 2,
+          child: Hero(
+            child: Image.asset(
+              'assets/splash.png',
+              scale: 2,
+            ),
+            tag: 'tag_splash_icon',
           ),
         ),
-        NeoLinkTitle(),
+        Hero(
+          child: NeoLinkTitle(),
+          tag: 'tag_title',
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28),
           child: Icon(

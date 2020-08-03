@@ -22,11 +22,17 @@ class SplashPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/splash.png'),
+              Hero(
+                child: Image.asset('assets/splash.png'),
+                tag: 'tag_splash_icon',
+              ),
               SizedBox(
                 height: 27,
               ),
-              NeoLinkTitle()
+              Hero(
+                child: NeoLinkTitle(),
+                tag: 'tag_title',
+              )
             ],
           ),
         ),
