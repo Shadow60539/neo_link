@@ -11,18 +11,12 @@ class MyAppBar extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 25),
-          child: Hero(
-            child: Image.asset(
-              'assets/splash.png',
-              scale: 2,
-            ),
-            tag: 'tag_splash_icon',
+          child: Image.asset(
+            'assets/splash.png',
+            scale: 2,
           ),
         ),
-        Hero(
-          child: NeoLinkTitle(),
-          tag: 'tag_title',
-        ),
+        NeoLinkTitle(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28),
           child: Icon(

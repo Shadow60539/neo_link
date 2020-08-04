@@ -14,7 +14,6 @@ class _IndexPageState extends State<IndexPage> {
 
   List<Widget> _widgets = <Widget>[
     HomePage(),
-    HomePage(),
     NotificationPage(),
     SettingsPage(),
   ];
@@ -68,40 +67,19 @@ class _IndexPageState extends State<IndexPage> {
           print("inside value listen $pageNumber");
           return BottomNavigationBar(
             currentIndex: pageNumber,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.lightBlue,
             onTap: _onItemTapped,
             selectedFontSize: 10,
             unselectedFontSize: 10,
-            selectedItemColor: Colors.black26,
-            unselectedItemColor: Colors.black,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white54,
             items: [
               BottomNavigationBarItem(
-                  icon: Image.asset(
-                    'assets/home.png',
-                    color: Colors.grey,
-                  ),
-                  title: Text('Home')),
+                  icon: Icon(Icons.home), title: Text('Home')),
               BottomNavigationBarItem(
-                  icon: Image.asset(
-                    'assets/scan.png',
-                    color: Colors.grey,
-                  ),
-                  title: Text(
-                    'Scan',
-                    style: TextStyle(color: Colors.black26),
-                  )),
+                  icon: Icon(Icons.notifications), title: Text('Notification')),
               BottomNavigationBarItem(
-                  icon: Image.asset(
-                    'assets/notifications.png',
-                    color: Colors.grey,
-                  ),
-                  title: Text('Notification')),
-              BottomNavigationBarItem(
-                  icon: Image.asset(
-                    'assets/settings.png',
-                    color: Colors.grey,
-                  ),
-                  title: Text('Settings')),
+                  icon: Icon(Icons.settings), title: Text('Settings')),
             ],
           );
         },

@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:neo_link_app/ui/colors/colors.dart';
 import 'package:neo_link_app/ui/pages/guardian_page.dart';
-import 'package:neo_link_app/ui/widgets/app_bar.dart';
 import 'package:neo_link_app/ui/widgets/home_page_card.dart';
+import 'package:neo_link_app/ui/widgets/neo_link_title.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -11,12 +10,37 @@ class HomePage extends StatelessWidget {
     final style = Theme.of(context).textTheme.bodyText1;
     return SafeArea(
       child: Scaffold(
-        body: Stack(
+        appBar: AppBar(
+          backgroundColor: Colors.lightBlue,
+          elevation: 0,
+          centerTitle: true,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Image.asset(
+              'assets/splash.png',
+              scale: 2,
+            ),
+          ),
+          title: NeoLinkTitle(),
+          actions: <Widget>[
+            GestureDetector(
+              onTap: () {},
+              child: Image.asset(
+                'assets/scan.png',
+                color: Colors.white,
+              ),
+            )
+          ],
+        ),
+        body: Column(
           children: <Widget>[
-            Container(
-              decoration: kHomePageDecoration,
+            SizedBox(
+              height: 20,
             ),
             _backgroundContainer(style, context),
+            SizedBox(
+              height: 10,
+            ),
             _draggableSheet(),
           ],
         ),
@@ -27,29 +51,37 @@ class HomePage extends StatelessWidget {
   Widget _backgroundContainer(TextStyle style, BuildContext context) {
     return Column(
       children: <Widget>[
-        MyAppBar(),
         GestureDetector(
           onTap: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => GuardianPage())),
-          child: Container(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.white),
-                  child: Image.asset('assets/user_dp.png'),
-                ),
-                SizedBox(
-                  height: 11,
-                ),
-                Text(
-                  'Guardian',
-                  style: style.copyWith(fontSize: 24),
-                ),
-              ],
-            ),
+          child: Column(
+            children: <Widget>[
+              Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  Container(
+                    height: 90,
+                    width: 90,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.lightBlue),
+                  ),
+                  Container(
+                    height: 80,
+                    width: 80,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.white),
+                    child: Image.asset('assets/user_dp.png'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 11,
+              ),
+              Text(
+                'Guardian Name',
+                style: style.copyWith(fontSize: 24, color: Colors.black),
+              ),
+            ],
           ),
         ),
       ],
@@ -57,50 +89,40 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _draggableSheet() {
-    return DraggableScrollableSheet(
-      builder: (context, c) {
-        return Container(
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30), topRight: Radius.circular(30))),
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(vertical: 30),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    HomePageCard(),
-                    HomePageCard(),
-                    HomePageCard(),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    HomePageCard(),
-                    HomePageCard(),
-                    HomePageCard(),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    HomePageCard(),
-                    HomePageCard(),
-                    HomePageCard(),
-                  ],
-                ),
-              ],
-            ),
-            controller: c,
+    return Expanded(
+      child: Container(
+        width: double.maxFinite,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black12,
+                  spreadRadius: 1,
+                  blurRadius: 10,
+                  offset: Offset(0, 2)),
+            ],
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(vertical: 30),
+          child: Column(
+            children: <Widget>[
+              HomePageCard(
+                count: 1,
+              ),
+              HomePageCard(
+                count: 2,
+              ),
+              HomePageCard(
+                count: 3,
+              ),
+              HomePageCard(
+                count: 4,
+              ),
+            ],
           ),
-        );
-      },
-      initialChildSize: 0.5,
-      maxChildSize: 0.7,
-      minChildSize: 0.5,
+        ),
+      ),
     );
   }
 }
