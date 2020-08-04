@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_link_app/ui/pages/guardian_page.dart';
+import 'package:neo_link_app/ui/widgets/app_bar.dart';
 import 'package:neo_link_app/ui/widgets/home_page_card.dart';
-import 'package:neo_link_app/ui/widgets/neo_link_title.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -10,27 +10,9 @@ class HomePage extends StatelessWidget {
     final style = Theme.of(context).textTheme.bodyText1;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.lightBlue,
-          elevation: 0,
-          centerTitle: true,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Image.asset(
-              'assets/splash.png',
-              scale: 2,
-            ),
-          ),
-          title: NeoLinkTitle(),
-          actions: <Widget>[
-            GestureDetector(
-              onTap: () {},
-              child: Image.asset(
-                'assets/scan.png',
-                color: Colors.white,
-              ),
-            )
-          ],
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: MyAppBar(),
         ),
         body: Column(
           children: <Widget>[
